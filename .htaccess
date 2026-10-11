@@ -1,0 +1,13 @@
+DirectoryIndex index.php
+Options -Indexes
+
+# Keep database dumps, docs and notes from being downloaded when the project root is the web root.
+<FilesMatch "\.(sql|md|json|lock|zip|log)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
